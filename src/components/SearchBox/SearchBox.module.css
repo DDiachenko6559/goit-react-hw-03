@@ -1,5 +1,10 @@
 .searchBox {
+  margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.searchBox label {
+  font-weight: 600;
 }
 
 .searchBox input {
@@ -8,6 +13,7 @@
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
+  margin-top: 5px;
 }
 
 .searchBox input:focus {
