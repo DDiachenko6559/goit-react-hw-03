@@ -1,0 +1,7 @@
+.app {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: space-around;
+  align-items: flex-start;
+}

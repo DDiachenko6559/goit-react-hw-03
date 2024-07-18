@@ -1,0 +1,17 @@
+.searchBox {
+  margin-bottom: 20px;
+}
+
+.searchBox input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.searchBox input:focus {
+  outline: none;
+  border-color: dodgerblue;
+  box-shadow: 0 0 5px rgba(0, 0, 255, 0.3);
+}
