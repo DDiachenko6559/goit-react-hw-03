@@ -1,15 +1,18 @@
 import s from "./Contact.module.css";
-import { LuContact2, LuPhone } from "react-icons/lu";
+import { LuContact, LuPhone } from "react-icons/lu";
 
 const Contact = ({ name, number }) => {
   return (
     <div className={s.contact}>
-      <p>
-        <LuContact2 /> {name}
-      </p>
-      <p>
-        <LuPhone /> {number}
-      </p>
+      <div className={s.card}>
+        <p className={s.text}>
+          <LuContact className={s.contactIcon} size="20" /> {name}
+        </p>
+        <p className={s.text}>
+          <LuPhone className={s.contactIcon} size="20" /> {number}
+        </p>
+      </div>
+      <button type="button">Delete</button>
     </div>
   );
 };
