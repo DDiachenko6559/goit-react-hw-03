@@ -3,26 +3,37 @@ import ContactList from "../ContactList/ContactList";
 import ContactForm from "../ContactForm/ContactForm";
 import SearchBox from "../SearchBox/SearchBox";
 import s from "./App.module.css";
+import { initialContacts } from "./App";
 
-const initialContacts = [
-  { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
-  { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
-  { id: "id-3", name: "Eden Clements", number: "645-17-79" },
-  { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
-];
+export const App = () => {
+  const [contacts, setContacts] = useState([]);
 
-const App = () => {
-  const [contacts, setContacts] = useState(() => {
+  // useEffect to load contacts from localStorage on component mount
+  useEffect(() => {
     const storedContacts = JSON.parse(localStorage.getItem("contacts"));
     if (storedContacts) {
-      return storedContacts;
+      setContacts(storedContacts);
+    } else {
+      setContacts(initialContacts); // fallback to initialContacts if no contacts in localStorage
     }
-    return initialContacts;
-  });
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("contacts", JSON.stringify(contacts));
   }, [contacts]);
+
+  const [feedback, setFeedback] = useState(() => {
+    const savedFeedback = JSON.parse(localStorage.getItem("feedback"));
+    if (savedFeedback) {
+      return savedFeedback;
+    }
+
+    return INITIAL_FEEDBACK_STATE;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("feedback", JSON.stringify(feedback));
+  }, [feedback]);
 
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -58,5 +69,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;
