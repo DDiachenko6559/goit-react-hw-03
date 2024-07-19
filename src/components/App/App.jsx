@@ -23,14 +23,27 @@ const App = () => {
     contact.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const addContact = (newContact) => {
+    setContacts([...contacts, newContact]);
+  };
+
+  const deleteContact = (id) => {
+    setContacts((prevContacts) =>
+      prevContacts.filter((contact) => contact.id !== id)
+    );
+  };
+
   return (
     <div className={s.app}>
       <div>
         <h1>Phonebook</h1>
-        <ContactForm />
+        <ContactForm addContact={addContact} />
         <SearchBox value={searchTerm} onChange={handleSearch} />
       </div>
-      <ContactList contacts={filteredContacts} />
+      <ContactList
+        contacts={filteredContacts}
+        onDeleteContact={deleteContact}
+      />
     </div>
   );
 };

@@ -1,0 +1,44 @@
+.contactForm {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.formField {
+  margin-bottom: 10px;
+
+  & label {
+    font-weight: 600;
+  }
+
+  & input,
+  button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+  }
+}
+
+.error {
+  color: red;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
